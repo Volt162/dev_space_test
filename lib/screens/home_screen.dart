@@ -1,8 +1,6 @@
 import 'package:dev_space_test/blocs/home/bloc/home_bloc.dart';
 import 'package:dev_space_test/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -21,11 +19,13 @@ class HomeScreen extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(),
+        // Logo
         Container(
           margin: const EdgeInsets.all(20),
           alignment: Alignment.center,
           child: Image.asset(image),
         ),
+        //Item List
         ItemListView(items: state.itemList),
       ],
     );

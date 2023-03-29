@@ -9,6 +9,7 @@ part 'home_event.dart';
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
+  // CustomExceptions
   final List<CustomException> exs = [
     CustomException('No internet connection'),
     CustomException('Sorry, item not added! Try againe'),
@@ -30,13 +31,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       await Future.delayed(const Duration(milliseconds: 2000));
       emit(const HomePageItemListChanged());
     } catch (e) {
-      emit(const HomePageError(message: ''));
+      emit(HomePageError(message: e.toString()));
     }
   }
 
   FutureOr<void> _onIncrementItemList(
       IncrementItemList event, Emitter<HomeState> emit) async {
     try {
+      // throw randome Exception 
       if (state.itemList.length > 35) {
         _tryGetRandomeException();
       }
@@ -54,6 +56,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   FutureOr<void> _onDecrementItemList(
       DecrementItemList event, Emitter<HomeState> emit) {
     try {
+      // throw randome Exception 
       if (state.itemList.length > 35) {
         _tryGetRandomeException();
       }
